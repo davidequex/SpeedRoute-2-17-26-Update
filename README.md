@@ -111,6 +111,7 @@ Algorithm output directly on satellite imagery.
 Red = horizontal curbs  
 Blue = vertical curbs
 
+<img width="2400" height="1200" alt="curbs_visualization" src="https://github.com/user-attachments/assets/fc9c5669-8ea9-4cbf-84ac-7d2d93a8ec60" />
 <img width="1054" height="893" alt="Screenshot 2026-02-17 at 12 53 47 PM" src="https://github.com/user-attachments/assets/961a8ab3-7c5d-4cb0-bd64-32f311d7e159" />
 
 
@@ -175,6 +176,60 @@ For engineering workflows, control and predictability matter more than black-box
 - interactive review UI
 
 ---
+## AutoCAD Workflow Optimization
+
+SpeedRoute is designed to reduce drafting time, not eliminate human control. The exported DXF intentionally preserves extra curb lines so engineers can finalize geometry quickly inside AutoCAD using native tools.
+
+The key workflow accelerator is AutoCAD’s **Trim** feature.
+
+Instead of manually drawing every curb, the pipeline generates a dense curb grid that slightly overestimates boundaries. In AutoCAD, the Trim tool can then remove unwanted segments in seconds.
+
+This turns what would normally be:
+
+> hours of manual tracing
+
+into:
+
+> minutes of targeted cleanup
+
+### Why Overgenerate Lines?
+
+The algorithm prioritizes detection coverage over perfection.
+
+It is faster to:
+
+1. generate slightly too many lines  
+2. trim unwanted sections  
+3. keep accurate edges
+
+than to manually draft entire streets from scratch.
+
+This hybrid approach combines:
+
+- automated detection speed
+- human judgment
+- CAD-native precision
+
+### Practical Impact
+
+Engineers are not forced to accept machine output blindly. Instead, SpeedRoute acts as a drafting assistant:
+
+- pre-draws curb networks
+- aligns with real satellite geometry
+- preserves editability
+- integrates with existing AutoCAD workflows
+
+Because the geometry is exported as standard polylines, all familiar CAD tools remain available:
+
+- Trim
+- Extend
+- Break
+- Offset
+- Join
+
+No special plugins required.
+
+The result is a workflow that feels native to AutoCAD users while dramatically reducing repetitive labor.
 
 ## Project Goal
 
